@@ -1,0 +1,10 @@
+{
+    "salt_round": "10",
+    "jwt_secret": "here-is-the-secret",
+    "endpoint_register": "/register",
+    "endpoint_authenticate": "/login",
+    "endpoint_clients": "/clients",
+    "endpoint_client": "/clients/:id",
+    "endpoint_setClientStatus": "/status/client"
+
+}

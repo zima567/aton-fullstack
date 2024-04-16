@@ -1,0 +1,36 @@
+{
+  "name": "aton",
+  "version": "1.0.0",
+  "description": "This is a project for intership",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "undomigrate": "npx sequelize-cli db:migrate:undo:all",
+    "seeds": "npx sequelize-cli db:seed:all",
+    "undoseeds": "npx sequelize-cli db:seed:undo:all",
+    "rebootdb": "npm run undoseeds && npm run undomigrate && npm run migrate && npm run seeds",
+    "bootdb": "npm run migrate && npm run seeds"
+  },
+  "author": "Montezima Daniel Moise",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.4",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.24.0",
+    "@babel/node": "^7.23.9",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/register": "^7.23.7",
+    "nodemon": "^3.1.0",
+    "sequelize-cli": "^6.6.2"
+  }
+}

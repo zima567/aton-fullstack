@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>ATON CRM</title>
+</head>
+<body>
+  <div class="loader-container" id="loaderContainer">
+    <div class="loader"></div>
+  </div>
+
+  <div class="notification" id="notification">
+    This is a notification.
+  </div>
+
+    <!-- Popup form Signup-->
+    <div class="popup-form" id="popup-form-signup">
+      <div class="popup-form-container">
+        <h2>Регистрация</h2>
+        <p>
+          <b>Требования к логину:</b><br>
+          Логин может содержать буквы, цифры, символы подчеркивания<br>
+          или дефисы и иметь длину от 3 до 20 символов.<br><br>
+          <b>Требования к паролю:</b><br>
+          Пароль обязательно должен содержать строчные и прописные буквы, цифры,<br>
+          специальные символы и иметь длину не менее 8 и не более 20.<br>
+          (пример: aton@intership2024A)<br><br>
+          <b>Требования к ФИО:</b><br>
+          Полное имя должно быть строкой, состоящей как минимум из двух слов.<br><br>
+        </p>
+        <span style="color: red; font-size: 10px;" id="errorMessage"></span>
+        <div>
+          <input type="text" id="loginRegister" name="login" placeholder="Введите ваш логин">
+
+          <input type="password" id="passwordRegister" name="password" placeholder="Введите ваш пароль">
+
+          <input type="text" id="fioRegister" name="fio" placeholder="Введите ФИО">
+  
+          <input type="submit" value="Зарегистрировать" class="submit-button" id="signupBtn">
+        </div>
+  
+        <button class="close-button">Отменить</button>
+      </div>
+    </div>
+
+    <!-- Popup form Login -->
+    <div class="popup-form" id="popup-form-login">
+      <div class="popup-form-container">
+        <h2>Вход</h2>
+        <span style="color: red; font-size: 10px;" id="errorMessageLogin"></span>
+        <div>
+          <input type="text" id="loginLogin" name="login" placeholder="Введите ваш логин">
+
+          <input type="password" id="passwordLogin" name="password" placeholder="Введите ваш пароль">
+  
+          <input type="submit" value="Вход" class="submit-button" id="loginBtn">
+        </div>
+  
+        <button class="close-button">Cancel</button>
+      </div>
+    </div>
+
+  <div class="top-bar">
+    <!-- Logo -->
+    <div class="logo">АТОН ЦРМ</div>
+
+    <!-- Menu -->
+    <div class="menu">
+      <div class="menu-item" id="signupMenu">Зарегистрировать</div>
+      <div class="menu-item" id="loginMenu">Вход</div>
+    </div>
+
+    <!-- User info -->
+    <div class="user-info">
+      <!-- Logged in user info -->
+      <div class="logged-in-user" id="welcome-wrapper">
+        <span id="welcome-span"></span>
+      </div>
+
+      <!-- Logout button -->
+      <div class="menu-item" id="logout">Выход</div>
+    </div>
+  </div>
+
+  <div class="table-master">
+    <button class="save-changes" id="save-changes">Save changes</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Номер счета</th>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+          <th>Дата рождения</th>
+          <th>ИНН</th>
+          <th>ФИО Ответственного</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody id="table-master-body">
+      </tbody>
+    </table>
+  
+    <div class="load-more-button" id="load-more-button">
+      Загрузить ещё
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
