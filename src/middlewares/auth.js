@@ -1,7 +1,9 @@
 import jwt from "jsonwebtoken";
 import params from "../config/params";
 
-// Define the middleware function
+// Middleware function that will check for bearer token in the request
+//Process the token, on success attach the authorized user data to the request
+//On failure send an empty object
 function verifyToken(req, res, next) {
     // Check if the Authorization header contains a Bearer token
     const bearerHeader = req.headers['authorization'];
@@ -26,5 +28,4 @@ function verifyToken(req, res, next) {
     next();
 }
   
-// Export the middleware function
 module.exports = verifyToken;

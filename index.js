@@ -1,26 +1,18 @@
 import express from "express";
 import bodyParser from "body-parser";
-import authMiddleware from "./src/middlewares/auth"
-import authRouter from "./src/routers/auth";
-import clientRouter from "./src/routers/clients";
+import loadRouters from "./src/routers/index";
 
 // Create an Express application
 const app = express();
 
-//Define middlewares
+// Define middlewares
 app.use(bodyParser.json());
 
-//Serve static files
+// Serve static files
 app.use('/frontend', express.static('public'))
 
-// Welcome route
-app.get('/', (req, res) => {
-    res.send('Welcome to ATON!');
-});
-
-//Api routing
-app.use('/api/auth', authRouter);
-app.use('/api', authMiddleware, clientRouter);
+// Load routers
+loadRouters(app);
 
 // Start the server
 const port = 3000;

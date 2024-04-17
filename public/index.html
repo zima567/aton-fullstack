@@ -7,61 +7,17 @@
   <title>ATON CRM</title>
 </head>
 <body>
+  <!-- Main loader that will be display on waiting for request responses -->
   <div class="loader-container" id="loaderContainer">
     <div class="loader"></div>
   </div>
 
+  <!-- Notification banner that will show at the bottom of the page -->
   <div class="notification" id="notification">
     This is a notification.
   </div>
 
-    <!-- Popup form Signup-->
-    <div class="popup-form" id="popup-form-signup">
-      <div class="popup-form-container">
-        <h2>Регистрация</h2>
-        <p>
-          <b>Требования к логину:</b><br>
-          Логин может содержать буквы, цифры, символы подчеркивания<br>
-          или дефисы и иметь длину от 3 до 20 символов.<br><br>
-          <b>Требования к паролю:</b><br>
-          Пароль обязательно должен содержать строчные и прописные буквы, цифры,<br>
-          специальные символы и иметь длину не менее 8 и не более 20.<br>
-          (пример: aton@intership2024A)<br><br>
-          <b>Требования к ФИО:</b><br>
-          Полное имя должно быть строкой, состоящей как минимум из двух слов.<br><br>
-        </p>
-        <span style="color: red; font-size: 10px;" id="errorMessage"></span>
-        <div>
-          <input type="text" id="loginRegister" name="login" placeholder="Введите ваш логин">
-
-          <input type="password" id="passwordRegister" name="password" placeholder="Введите ваш пароль">
-
-          <input type="text" id="fioRegister" name="fio" placeholder="Введите ФИО">
-  
-          <input type="submit" value="Зарегистрировать" class="submit-button" id="signupBtn">
-        </div>
-  
-        <button class="close-button">Отменить</button>
-      </div>
-    </div>
-
-    <!-- Popup form Login -->
-    <div class="popup-form" id="popup-form-login">
-      <div class="popup-form-container">
-        <h2>Вход</h2>
-        <span style="color: red; font-size: 10px;" id="errorMessageLogin"></span>
-        <div>
-          <input type="text" id="loginLogin" name="login" placeholder="Введите ваш логин">
-
-          <input type="password" id="passwordLogin" name="password" placeholder="Введите ваш пароль">
-  
-          <input type="submit" value="Вход" class="submit-button" id="loginBtn">
-        </div>
-  
-        <button class="close-button">Cancel</button>
-      </div>
-    </div>
-
+  <!-- Top nav bar -->
   <div class="top-bar">
     <!-- Logo -->
     <div class="logo">АТОН ЦРМ</div>
@@ -84,6 +40,54 @@
     </div>
   </div>
 
+  <!-- Popup form Signup-->
+  <div class="popup-form" id="popup-form-signup">
+    <div class="popup-form-container">
+      <h2>Регистрация</h2>
+      <p>
+        <b>Требования к логину:</b><br>
+        Логин может содержать буквы, цифры, символы подчеркивания<br>
+        или дефисы и иметь длину от 3 до 20 символов.<br><br>
+        <b>Требования к паролю:</b><br>
+        Пароль обязательно должен содержать строчные и прописные буквы, цифры,<br>
+        специальные символы и иметь длину не менее 8 и не более 20.<br>
+        (пример: aton@intership2024A)<br><br>
+        <b>Требования к ФИО:</b><br>
+        Полное имя должно быть строкой, состоящей как минимум из двух слов.<br><br>
+      </p>
+      <span style="color: red; font-size: 10px;" id="errorMessage"></span>
+      <div>
+        <input type="text" id="loginRegister" name="login" placeholder="Введите ваш логин">
+
+        <input type="password" id="passwordRegister" name="password" placeholder="Введите ваш пароль">
+
+        <input type="text" id="fioRegister" name="fio" placeholder="Введите ФИО">
+
+        <input type="submit" value="Зарегистрировать" class="submit-button" id="signupBtn">
+      </div>
+
+      <button class="close-button">Отменить</button>
+    </div>
+  </div>
+
+  <!-- Popup form Login -->
+  <div class="popup-form" id="popup-form-login">
+    <div class="popup-form-container">
+      <h2>Вход</h2>
+      <span style="color: red; font-size: 10px;" id="errorMessageLogin"></span>
+      <div>
+        <input type="text" id="loginLogin" name="login" placeholder="Введите ваш логин">
+
+        <input type="password" id="passwordLogin" name="password" placeholder="Введите ваш пароль">
+
+        <input type="submit" value="Вход" class="submit-button" id="loginBtn">
+      </div>
+
+      <button class="close-button">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Table where clients records will be displayed -->
   <div class="table-master">
     <button class="save-changes" id="save-changes">Save changes</button>
     <table>

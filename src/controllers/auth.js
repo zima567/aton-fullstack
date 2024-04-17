@@ -5,6 +5,7 @@ import params from "../config/params";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+//Create a new user account route handler
 const createAccount = ( async (req, res) => {
     //default response object
     const response = JSON.parse(JSON.stringify(defaultApiResponse));
@@ -59,6 +60,7 @@ const createAccount = ( async (req, res) => {
 
 });
 
+//Authentication and access token sender route handler
 const getAccessToken = (async (req, res) => {
     //default response object
     const response = JSON.parse(JSON.stringify(defaultApiResponse));

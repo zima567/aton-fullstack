@@ -8,15 +8,7 @@ $(document).ready(function(){
     /**
      * check if user is logged in 
      */
-    loadAuthSession();
-
-    let authToken = loadToken();
-    if(authToken) {
-        loadUserClients(authToken, global.limit, global.offset);  
-    } else {
-        let text = "Пожалуйста, авторизируйтесь, чтобы увидеть клиентов, привязанных к вашей учетной записи.";
-        displayMessageInTable(text);
-    }
+    loadAuthSession(global);
 
     /**
      * close modal signup/login 
@@ -223,7 +215,7 @@ function AddClientsToHtmlTable(clients, idTableBodyHtml, cleanPreviousRows = tru
 
     for (let index = 0; index < clients.length; index++) {
         let element = clients[index];
-        //Order the select of status
+        //Order the select of status to be displayed
         let options = ['В работе', 'Отказ', 'Сделка закрыта'];
         options.splice(options.indexOf(element.status), 1);
         options.unshift(element.status);
@@ -247,12 +239,14 @@ function AddClientsToHtmlTable(clients, idTableBodyHtml, cleanPreviousRows = tru
     }
 }
 
+//Write custom message text to the main html table
 function handleEmptyHtmlTable(idTableBodyHtml, defaultText) {
     console.log(idTableBodyHtml, defaultText);
     $("#" + idTableBodyHtml).text("");
     $("#" + idTableBodyHtml).append("<tr><td>" + defaultText + "</td></tr>");
 }
 
+//Function to handle ajax request
 function sendRequestToApi(endpoint, httpMethod, reqData, contentType, bearerToken = 0, callBack) {
     $.ajax({
         url: endpoint,
@@ -279,10 +273,12 @@ function sendRequestToApi(endpoint, httpMethod, reqData, contentType, bearerToke
     });  
 }
 
+//Hide login and signup modals
 function hideModals() {
     $(".popup-form").hide();
 }
 
+//Show login and signup modals
 function showModals(type) {
     if(type == "register") {
         $("#popup-form-signup").css("display", "flex");
@@ -291,6 +287,7 @@ function showModals(type) {
     }
 }
 
+//Display and hide required html elements when user is logged in
 function setLoginState(data) {
     $("#signupMenu").hide();
     $("#loginMenu").hide();
@@ -298,6 +295,7 @@ function setLoginState(data) {
     $("#logout").show();
 }
 
+//Display and hide required element when no user is logged in
 function setLogoutState() {
     $("#signupMenu").show();
     $("#loginMenu").show();
@@ -309,14 +307,20 @@ function setLogoutState() {
     displayMessageInTable(text);
 }
 
-function loadAuthSession() {
+//Very if authentication token has been saved and automatically log in user
+function loadAuthSession(global) {
     let storedToken = localStorage.getItem('token-api-aton');
     if(storedToken) {
         setLoginState(JSON.parse(storedToken));
+        loadUserClients(JSON.parse(storedToken).token, global.limit, global.offset);
         showBottomNotification("Welcome back to ATON CRM "+ JSON.parse(storedToken).login + "!");
+    } else {
+        let text = "Пожалуйста, авторизируйтесь, чтобы увидеть клиентов, привязанных к вашей учетной записи.";
+        displayMessageInTable(text);
     }
 }
 
+//Get value of saved token in the local storage memory
 function loadToken() {
     let storedToken = localStorage.getItem('token-api-aton');
     if(storedToken) {
@@ -325,6 +329,7 @@ function loadToken() {
     return null;
 }
 
+//Format birth date value from the database
 function formatDate(dateArgs) {
 
     const date = new Date(dateArgs);
@@ -342,16 +347,19 @@ function formatDate(dateArgs) {
     return `${paddedDay}.${paddedMonth}.${year}`;
 }
 
+//Reload web page
 function reloadPage(val = false) {
     location.reload(val);
 }
 
+//Display text message in table of id = table-master-body
 function displayMessageInTable(text) {
     const idTable = "table-master-body";
     handleEmptyHtmlTable(idTable, text);
     $("#load-more-button").hide();
 }
 
+//Display notification at the bottom of the webpage
 function showBottomNotification(text = "") {
     $("#notification").text(text);
      // Show the notification

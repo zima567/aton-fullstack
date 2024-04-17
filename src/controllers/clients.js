@@ -4,7 +4,7 @@ import models from "../db/models/index";
 import params from "../config/params";
 
 
-
+//Display all clients linked to a user route handler
 const getClients = ( async (req, res) => {
     //default response object
     const response = JSON.parse(JSON.stringify(defaultApiResponse));
@@ -64,6 +64,7 @@ const getClients = ( async (req, res) => {
     }
 });
 
+//Change clients statuses route handler
 const changeClientStatus = ( async (req, res) => {
     //default response object
     const response = JSON.parse(JSON.stringify(defaultApiResponse));

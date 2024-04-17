@@ -1,4 +1,4 @@
-
+//Verify if password meets the requirements
 const  verifyPassword = (password) => {
   // Password length criteria
   const minLength = 8;
@@ -17,6 +17,7 @@ const  verifyPassword = (password) => {
   return isLengthValid && isCharactersValid;
 }
 
+//Verify if login meets the requirements
 const verifyLogin = (username) => {
     // Regular expression to check if the username only contains
     // letters, numbers, underscores, or hyphens, and is between 3 and 20 characters long
@@ -29,6 +30,7 @@ const verifyLogin = (username) => {
     }
 }
 
+//Verify if fullname field meets the requirements
 const verifyFullName = (fullName) => {
   // Check if the input is a string
   if (typeof fullName !== "string") {
@@ -60,6 +62,7 @@ const verifyFullName = (fullName) => {
   return true;
 }
 
+//Verify if a js object is empty or not
 const objEmpty = (obj) => {
   return Object.keys(obj).length === 0;
 }

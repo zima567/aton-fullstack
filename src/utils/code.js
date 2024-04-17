@@ -1,3 +1,4 @@
+//Status codes for http/api responses
 const status = {
     success: {
       RECORD_CREATED: "New record created successfully",
